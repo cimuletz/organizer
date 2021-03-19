@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ProiectOOP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Work/ProiectOOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ProiectOOP">
+				<Option output="D:/Work/ProiectOOP/cmake-build-debug/ProiectOOP.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Work/ProiectOOP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/x86_64-w64-mingw32"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/backward"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/include"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/include-fixed"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 ProiectOOP"/>
+					<CompileFile command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ProiectOOP/fast">
+				<Option output="D:/Work/ProiectOOP/cmake-build-debug/ProiectOOP.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Work/ProiectOOP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/x86_64-w64-mingw32"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/backward"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/include"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/include-fixed"/>
+					<Add directory="d:\utilitare\gcc-10.2.0\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 ProiectOOP/fast"/>
+					<CompileFile command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Work/ProiectOOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Work/ProiectOOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Utilitare/gcc-10.2.0/mingw64/bin/mingw32-make.exe -f &quot;D:/Work/ProiectOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Work/ProiectOOP/Alarm.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/Alarm.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/DateTime.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/DateTime.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/Reminder.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/Reminder.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/ShoppingList.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/ShoppingList.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/ToDoList.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/ToDoList.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/main.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

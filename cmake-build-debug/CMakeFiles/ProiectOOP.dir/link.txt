@@ -1,0 +1,3 @@
+"D:\Utilitare\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\ProiectOOP.dir/objects.a
+D:\Utilitare\gcc-10.2.0\mingw64\bin\ar.exe cr CMakeFiles\ProiectOOP.dir/objects.a @CMakeFiles\ProiectOOP.dir\objects1.rsp
+D:\Utilitare\gcc-10.2.0\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\ProiectOOP.dir/objects.a -Wl,--no-whole-archive  -o ProiectOOP.exe -Wl,--out-implib,libProiectOOP.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ProiectOOP.dir\linklibs.rsp

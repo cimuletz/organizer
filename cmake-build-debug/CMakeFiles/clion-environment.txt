@@ -1,0 +1,4 @@
+ToolSet: w64 8.0 (local)@D:\Utilitare\gcc-10.2.0\mingw64
+Options: 
+
+Options:
