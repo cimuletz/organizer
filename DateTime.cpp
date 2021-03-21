@@ -63,7 +63,11 @@
     }
 
     void DateTime::printHour() const {
-        std::cout << this -> hour << ":" << this -> min;
+        std::cout << this -> hour << ":" << this -> min << "\n";
+    }
+
+    void DateTime::printDate() const {
+        std::cout << this -> day << "-" << this -> mon << "-" << this -> yr << " " << this -> hour << ":" << this -> min << "\n";
     }
 
     int DateTime::getMinute(){

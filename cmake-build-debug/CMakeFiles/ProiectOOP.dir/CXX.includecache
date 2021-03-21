@@ -43,6 +43,10 @@ iostream
 -
 fstream
 -
+streambuf
+-
+sstream
+-
 ShoppingList.h
 D:/Work/ProiectOOP/ShoppingList.h
 ToDoList.h

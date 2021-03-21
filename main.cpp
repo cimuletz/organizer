@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <streambuf>
+#include <sstream>
 #include "ShoppingList.h"
 #include "ToDoList.h"
 #include "Alarm.h"
@@ -13,51 +15,131 @@ std::vector<Alarm> aList;
 
 void initRead(){
     std::string in;
+    std::vector<std::string> input;
     DateTime time;
     bool importance;
-    int n = 5, m, hour, min;
+    int n = 5, m, hour, min, day, mon, yr,j, index;
+    std::ifstream t("intrare.in");
+    std::string str((std::istreambuf_iterator<char>(t)),std::istreambuf_iterator<char>());
+    std::stringstream check1(str);
+    std::string intermediate;
+    while(getline(check1, intermediate, '\n')){
+        input.push_back(intermediate);
+    }
     ///read reminders
-    fin.open("intrare.in");
-    fin >> n;
-    std::cout<<n;
+    n = stoi(input[0]);
+    index = 1;
     for(int i = 0; i<n; ++i){
-        fin >> time;
-        fin >> importance;
-        rList.push_back(Reminder(in, time, importance));
+        in = input[index];
+        ++index;
+        j = 0;
+        day = min = yr = hour = mon = 0;
+        while(input[index][j] != ' '){
+            day = day * 10 + (input[index][j] - '0');
+            j++;
+        }
+        j++;
+        while(input[index][j] != ' '){
+            mon = mon * 10 + (input[index][j] - '0');
+            j++;
+        }
+        j++;
+        while(input[index][j] != ' '){
+            yr = yr * 10 + (input[index][j] - '0');
+            j++;
+        }
+        j++;
+        while(input[index][j] != ' '){
+            hour = hour * 10 + (input[index][j] - '0');
+            j++;
+        }
+        j++;
+        while(j < input[index].size()){
+            min = min * 10 + (input[index][j] - '0');
+            j++;
+        }
+        j++;
+        //importance = input[++index][0] - '0';
+        DateTime aux(hour, min, day, mon, yr);
+        rList.push_back(Reminder(in, aux, importance));
+        ++index;
     }
     ///read shopping lists
-    /*fin>>n;
+    n = stoi(input[index]);
     for(int i = 0; i<n; ++i){
-        fin >> in;
+        index++;
+        in = input[index];
         ShoppingList aux(in);
-        fin >> m;
+        index++;
+        m = stoi(input[index]);
         for(int j = 0; j<m; ++j){
-            fin >> in;
+            index++;
+            in = input[index];
             aux.addItem(in);
         }
         sList.push_back(aux);
     }
     ///read todo lists
-    fin >> n;
+    index++;
+    n = stoi(input[index]);
     for(int i = 0; i<n; ++i){
-        fin >> in;
+        in = input[++index];
         ToDoList aux(in);
-        fin >> m;
-        for(int j = 0; j<m; ++j){
-            fin >> in;
-            fin >> time;
-            aux.addTask(in, time);
+        m = stoi(input[++index]);
+        for(int k = 0; k<m; ++k){
+            in = input[++index];
+            ++index;
+            j = 0;
+            //std::cout<<input[index] << "\n";
+            day = min = yr = hour = mon = 0;
+            while(input[index][j] != ' '){
+                day = day * 10 + (input[index][j] - '0');
+                j++;
+            }
+            j++;
+            while(input[index][j] != ' '){
+                mon = mon * 10 + (input[index][j] - '0');
+                j++;
+            }
+            j++;
+            while(input[index][j] != ' '){
+                yr = yr * 10 + (input[index][j] - '0');
+                j++;
+            }
+            j++;
+            while(input[index][j] != ' '){
+                hour = hour * 10 + (input[index][j] - '0');
+                j++;
+            }
+            j++;
+            while(j < input[index].size()){
+                min = min * 10 + (input[index][j] - '0');
+                j++;
+            }
+            j++;
+            DateTime timeAux(hour, min, day, mon, yr);
+            aux.addTask(in, timeAux);
         }
         tdList.push_back(aux);
     }
     ///read alarms
-    fin >> n;
+    n = stoi(input[++index]);
     for(int i = 0; i<n; ++i) {
-        fin >> in;
-        fin >> hour >> min;
-        fin >> importance;
+        in = input[++index];
+        ++index;
+        j = 0;
+        hour = min = 0;
+        while(input[index][j] != ' '){
+            hour = hour * 10 + (input[index][j] - '0');
+            j++;
+        }
+        j++;
+        while(j < input[index].size()){
+            min = min * 10 + (input[index][j] - '0');
+            j++;
+        }
         aList.push_back(Alarm( hour,min, in, importance));
-    }*/
+    }
 }
 
 void menuAlarms();
@@ -71,7 +153,7 @@ void listSLists();
 void listTDLists();
 
 void listAlarms(){
-    std::cout << aList.size();
+
     for(int i = 0; i<aList.size(); ++i){
         std::cout << aList[i];
     }
@@ -82,6 +164,7 @@ void listReminders(){
     for(int i = 0; i<rList.size(); ++i){
         std::cout << rList[i];
     }
+    menuReminders();
 }
 
 void menuAlarms(){
@@ -102,12 +185,14 @@ void menuAlarms(){
             std::cout<<"\nRecurrent alarm?(1 for yes, 0 for no): ";
             std::cin >> recurrent;
             aList.push_back(Alarm( hour,min, in, recurrent));
+            menuAlarms();
             break;
         case 3:
-            listAlarms();
+            //listAlarms();
             std::cout << "\nEnter index: ";
             std::cin >> i;
             aList.erase(aList.begin() + i - 1);
+            menuAlarms();
             break;
         default:
             menu();
@@ -133,12 +218,14 @@ void menuReminders(){
             std::cout<<"\nImportant reminder?(1 for yes, 0 for no): ";
             std::cin >> recurrent;
             rList.push_back(Reminder( in,time,recurrent));
+            menuReminders();
             break;
         case 3:
-            listReminders();
+            //listReminders();
             std::cout << "\nEnter index: ";
             std::cin >> i;
             rList.erase(rList.begin() + i - 1);
+            menuReminders();
             break;
         default:
             menu();
@@ -175,13 +262,15 @@ void menuSLists(){
                 aux.addItem(in);
             }
             sList.push_back(aux);
+            menuSLists();
             break;
         }
         case 3:
-            listSLists();
+            //listSLists();
             std::cout << "\nEnter index: ";
             std::cin >> i;
             sList.erase(sList.begin() + i - 1);
+            menuSLists();
             break;
         default:
             menu();
@@ -191,6 +280,7 @@ void menuSLists(){
 void listTDLists(){
     for(int i = 0; i<tdList.size(); ++i)
         std::cout <<i+1<<". " << tdList[i];
+    menuTDLists();
 }
 
 void menuTDLists(){
@@ -219,26 +309,30 @@ void menuTDLists(){
                 aux.addTask(in, time);
             }
             tdList.push_back(aux);
+            menuTDLists();
             break;
         }
         case 3:
-            listTDLists();
+            //listTDLists();
             std::cout << "Enter index: ";
             std::cin >> i;
             tdList.erase(tdList.begin() + i - 1);
+            menuTDLists();
             break;
         case 4:
-            listTDLists();
+            //listTDLists();
             std::cout << "Which list?";
             std::cin >> i;
             std::cout << "\nWhich index?";
             std::cin >> j;
             tdList[i].completedTask(j);
+            menuTDLists();
             break;
         case 5:
             std::cout <<"\nFrom which list?";
             std::cin >> i;
             tdList[i].printCompleted();
+            menuTDLists();
             break;
         default:
             menu();

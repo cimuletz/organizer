@@ -15,7 +15,7 @@
 
     void ShoppingList::addItem(std::string item){
         items.push_back(item);
-        std::cout << "Item added.";
+        std::cout << "Item added.\n";
     }
     void ShoppingList::deleteItem(const int i){
         std::string removed = items[i-1];
@@ -23,7 +23,6 @@
         std::cout << "Removed item " << removed << "\n";
     }
     void ShoppingList::printList(){
-        std::cout << this -> name <<":\n";
         if(items.empty()){
             std::cout << "Empty list!" << "\n";
         }

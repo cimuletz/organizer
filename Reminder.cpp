@@ -20,7 +20,7 @@
     }
     std::ostream& operator<<(std::ostream& out, const Reminder &R){
         out << "Reminder!\n" << R.message << "\n";
-        R.remindTime.printHour();
+        R.remindTime.printDate();
         return out;
     }
     void Reminder::snooze(){

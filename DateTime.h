@@ -21,6 +21,7 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const DateTime &A);
     friend std::istream &operator>>(std::istream &in, DateTime &A);
     void printHour() const;
+    void printDate() const;
     int getMinute();
     int getHour();
     int getDay();
