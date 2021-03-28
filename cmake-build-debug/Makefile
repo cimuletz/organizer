@@ -169,6 +169,33 @@ Alarm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/Alarm.cpp.s
 .PHONY : Alarm.cpp.s
 
+App.obj: App.cpp.obj
+
+.PHONY : App.obj
+
+# target to build an object file
+App.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/App.cpp.obj
+.PHONY : App.cpp.obj
+
+App.i: App.cpp.i
+
+.PHONY : App.i
+
+# target to preprocess a source file
+App.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/App.cpp.i
+.PHONY : App.cpp.i
+
+App.s: App.cpp.s
+
+.PHONY : App.s
+
+# target to generate assembly for a file
+App.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/App.cpp.s
+.PHONY : App.cpp.s
+
 DateTime.obj: DateTime.cpp.obj
 
 .PHONY : DateTime.obj
@@ -195,6 +222,33 @@ DateTime.s: DateTime.cpp.s
 DateTime.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/DateTime.cpp.s
 .PHONY : DateTime.cpp.s
+
+Menu.obj: Menu.cpp.obj
+
+.PHONY : Menu.obj
+
+# target to build an object file
+Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/Menu.cpp.obj
+.PHONY : Menu.cpp.obj
+
+Menu.i: Menu.cpp.i
+
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
+
+Menu.s: Menu.cpp.s
+
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProiectOOP.dir\build.make CMakeFiles/ProiectOOP.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
 
 Reminder.obj: Reminder.cpp.obj
 
@@ -316,9 +370,15 @@ help:
 	@echo ... Alarm.obj
 	@echo ... Alarm.i
 	@echo ... Alarm.s
+	@echo ... App.obj
+	@echo ... App.i
+	@echo ... App.s
 	@echo ... DateTime.obj
 	@echo ... DateTime.i
 	@echo ... DateTime.s
+	@echo ... Menu.obj
+	@echo ... Menu.i
+	@echo ... Menu.s
 	@echo ... Reminder.obj
 	@echo ... Reminder.i
 	@echo ... Reminder.s

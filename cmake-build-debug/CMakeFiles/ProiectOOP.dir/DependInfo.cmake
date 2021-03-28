@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/Work/ProiectOOP/Alarm.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/Alarm.cpp.obj"
+  "D:/Work/ProiectOOP/App.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/App.cpp.obj"
   "D:/Work/ProiectOOP/DateTime.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/DateTime.cpp.obj"
+  "D:/Work/ProiectOOP/Menu.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/Menu.cpp.obj"
   "D:/Work/ProiectOOP/Reminder.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/Reminder.cpp.obj"
   "D:/Work/ProiectOOP/ShoppingList.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/ShoppingList.cpp.obj"
   "D:/Work/ProiectOOP/ToDoList.cpp" "D:/Work/ProiectOOP/cmake-build-debug/CMakeFiles/ProiectOOP.dir/ToDoList.cpp.obj"

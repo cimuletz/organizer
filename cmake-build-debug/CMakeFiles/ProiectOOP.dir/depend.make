@@ -5,8 +5,25 @@ CMakeFiles/ProiectOOP.dir/Alarm.cpp.obj: ../Alarm.cpp
 CMakeFiles/ProiectOOP.dir/Alarm.cpp.obj: ../Alarm.h
 CMakeFiles/ProiectOOP.dir/Alarm.cpp.obj: ../DateTime.h
 
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../Alarm.h
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../App.cpp
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../App.h
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../DateTime.h
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../Menu.h
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../Reminder.h
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../ShoppingList.h
+CMakeFiles/ProiectOOP.dir/App.cpp.obj: ../ToDoList.h
+
 CMakeFiles/ProiectOOP.dir/DateTime.cpp.obj: ../DateTime.cpp
 CMakeFiles/ProiectOOP.dir/DateTime.cpp.obj: ../DateTime.h
+
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../Alarm.h
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../DateTime.h
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../Menu.cpp
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../Menu.h
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../Reminder.h
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../ShoppingList.h
+CMakeFiles/ProiectOOP.dir/Menu.cpp.obj: ../ToDoList.h
 
 CMakeFiles/ProiectOOP.dir/Reminder.cpp.obj: ../DateTime.h
 CMakeFiles/ProiectOOP.dir/Reminder.cpp.obj: ../Reminder.cpp
@@ -21,6 +38,7 @@ CMakeFiles/ProiectOOP.dir/ToDoList.cpp.obj: ../ToDoList.cpp
 CMakeFiles/ProiectOOP.dir/ToDoList.cpp.obj: ../ToDoList.h
 
 CMakeFiles/ProiectOOP.dir/main.cpp.obj: ../Alarm.h
+CMakeFiles/ProiectOOP.dir/main.cpp.obj: ../App.h
 CMakeFiles/ProiectOOP.dir/main.cpp.obj: ../DateTime.h
 CMakeFiles/ProiectOOP.dir/main.cpp.obj: ../Reminder.h
 CMakeFiles/ProiectOOP.dir/main.cpp.obj: ../ShoppingList.h

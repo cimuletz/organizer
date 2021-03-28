@@ -62,11 +62,11 @@
         return in;
     }
 
-    void DateTime::printHour() const {
+    void DateTime::printHour(std::ostream& os) const {
         std::cout << this -> hour << ":" << this -> min << "\n";
     }
 
-    void DateTime::printDate() const {
+    void DateTime::printDate(std::ostream& os) const {
         std::cout << this -> day << "-" << this -> mon << "-" << this -> yr << " " << this -> hour << ":" << this -> min << "\n";
     }
 

@@ -20,8 +20,8 @@ public:
     int operator>(const DateTime &A);
     friend std::ostream &operator<<(std::ostream &out, const DateTime &A);
     friend std::istream &operator>>(std::istream &in, DateTime &A);
-    void printHour() const;
-    void printDate() const;
+    void printHour(std::ostream& os) const;
+    void printDate(std::ostream& os) const;
     int getMinute();
     int getHour();
     int getDay();

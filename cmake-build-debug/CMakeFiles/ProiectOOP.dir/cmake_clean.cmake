@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ProiectOOP.dir/Alarm.cpp.obj"
+  "CMakeFiles/ProiectOOP.dir/App.cpp.obj"
   "CMakeFiles/ProiectOOP.dir/DateTime.cpp.obj"
+  "CMakeFiles/ProiectOOP.dir/Menu.cpp.obj"
   "CMakeFiles/ProiectOOP.dir/Reminder.cpp.obj"
   "CMakeFiles/ProiectOOP.dir/ShoppingList.cpp.obj"
   "CMakeFiles/ProiectOOP.dir/ToDoList.cpp.obj"

@@ -88,10 +88,22 @@
 		<Unit filename="D:/Work/ProiectOOP/Alarm.h">
 			<Option target="ProiectOOP"/>
 		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/App.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/App.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
 		<Unit filename="D:/Work/ProiectOOP/DateTime.cpp">
 			<Option target="ProiectOOP"/>
 		</Unit>
 		<Unit filename="D:/Work/ProiectOOP/DateTime.h">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/Menu.cpp">
+			<Option target="ProiectOOP"/>
+		</Unit>
+		<Unit filename="D:/Work/ProiectOOP/Menu.h">
 			<Option target="ProiectOOP"/>
 		</Unit>
 		<Unit filename="D:/Work/ProiectOOP/Reminder.cpp">

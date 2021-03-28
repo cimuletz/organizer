@@ -35,7 +35,7 @@ void Alarm::setRecurrence(bool recurrence){
 }
 std::ostream &operator<<(std::ostream& out, Alarm &A){
     out << A.message << "\n" ;
-    A.time.printHour();
+    A.time.printHour(std::cout);
     return out;
 }
 DateTime Alarm::getTime(){
