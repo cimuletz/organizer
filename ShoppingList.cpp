@@ -22,7 +22,7 @@
         items.erase(items.begin() + i - 1);
         std::cout << "Removed item " << removed << "\n";
     }
-    void ShoppingList::printList(){
+    void ShoppingList::printList(std::ostream& os){
         if(items.empty()){
             std::cout << "Empty list!" << "\n";
         }

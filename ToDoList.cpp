@@ -46,7 +46,7 @@
         completed.push_back(R);
         std::cout << "Completed task: " << R.getMessage() << "\n";
     }
-    void ToDoList::printCompleted(){
+    void ToDoList::printCompleted(std::ostream& os){
         std::cout << "Completed tasks: " << "\n";
         for(int i = 0; i < completed.size(); ++i){
             std::cout << completed[i].getMessage() << "\n";

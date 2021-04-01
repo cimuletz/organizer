@@ -26,7 +26,7 @@ public:
     void nextTasks(DateTime time);
     void missedTasks();
     void completedTask(int i);
-    void printCompleted();
+    void printCompleted(std::ostream& os);
 
 };
 

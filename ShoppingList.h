@@ -20,7 +20,7 @@ public:
     friend std::ostream& operator<<( std::ostream& out, const ShoppingList& lista );
     void addItem(std::string item);
     void deleteItem(const int i);
-    void printList();
+    void printList(std::ostream& os);
 };
 
 
