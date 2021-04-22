@@ -18,7 +18,8 @@ public:
     void setName(std::string name);
     void setAge(int age);
     ~Birthday() override = default;
-    void delay();
+    void delay() override;
+    void print(std::ostream& os) override;
     std::unique_ptr <Reminder> clone() override;
 };
 

@@ -14,7 +14,7 @@ class DateTime {
 public:
     DateTime();
     DateTime(int hour, int min, int day, int mon, int yr);
-    DateTime(DateTime &A);
+    DateTime(const DateTime &A);
     ~DateTime();
     DateTime& operator=(const DateTime& A);
     int operator>(const DateTime &A);

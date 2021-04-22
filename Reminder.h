@@ -20,6 +20,7 @@ public:
     Reminder& operator=(const Reminder& R);
     friend std::ostream &operator<<(std::ostream &out, const Reminder &R);
     virtual void delay();
+    virtual void print(std::ostream& os);
     void setMessage(std::string msg);
     void setDate(DateTime timeChange);
     void setImportant(bool important);

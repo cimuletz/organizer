@@ -20,6 +20,7 @@ class App {
     std::vector<ToDoList> tdList;
     std::vector<Alarm> aList;
 public:
+    App();
     friend std::istream& operator>>(std::istream& rd, App& A);
     void launch();
 };

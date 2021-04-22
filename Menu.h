@@ -18,7 +18,7 @@ class Menu {
     std::vector<ToDoList> tdList;
     std::vector<Alarm> aList;
 public:
-    Menu(std::vector<std::unique_ptr<Reminder>> &R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A);
+    Menu(std::vector<std::unique_ptr<Reminder>> R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A);
     void menuAlarms();
     void menu();
     void listAlarms();

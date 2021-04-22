@@ -4,7 +4,7 @@
 
 #include "Reminder.h"
     Reminder::Reminder(std::string message, DateTime time, bool important): message(message), remindTime(time), isImportant(important){}
-    Reminder::Reminder(const Reminder& R){
+    Reminder::Reminder(const Reminder& R): message(R.message), remindTime(R.remindTime), isImportant(R.isImportant){
         this->message = R.message;
         this->remindTime = R.remindTime;
         this->isImportant = R.isImportant;
@@ -19,9 +19,13 @@
         return *this;
     }
     std::ostream& operator<<(std::ostream& out, const Reminder &R){
-        out << "Reminder!\n" << R.message << "\n";
+        out << R.message << "\n";
         R.remindTime.printDate(std::cout);
         return out;
+    }
+    void Reminder::print(std::ostream& os){
+        os<<"Reminder!\n";
+        os << *this << "\n";
     }
     void Reminder::delay(){
         this -> remindTime.addMinutes(10);

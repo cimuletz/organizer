@@ -18,3 +18,9 @@ void Bill::delay(){
 std::unique_ptr <Reminder> Bill::clone(){
     return std::make_unique <Reminder> (*this);
 }
+void Bill::print(std::ostream& os){
+    os << "Bill to pay\n";
+    os << "Company: " << this -> company << "\nValue: " << this -> value << "\nMessage: ";
+    os << *this;
+    os << "\n";
+}

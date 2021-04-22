@@ -3,27 +3,17 @@
 //
 
 #include "Alarm.h"
-Alarm::Alarm(int hour, int min,  std::string msg, bool recurrent){
+DateTime getAlarmDate(int hour, int min){
     DateTime currentTime;
     DateTime aux(hour, min, currentTime.getYear(), currentTime.getMon(), currentTime.getDay());
     if( (hour < currentTime.getHour()) || (hour == currentTime.getHour() && min < currentTime.getMinute()) )
         aux.addDay();
-    time = aux;
-    message = msg;
-    this -> recurrent = recurrent;
-}
-Alarm::Alarm(const Alarm& A){
-    this -> time = A.time;
-    this -> message = A.message;
-    this -> recurrent = A.recurrent;
-}
-Alarm::Alarm(DateTime time, std::string msg, bool recurrent): time(time), message(msg), recurrent(recurrent){}
-/*Alarm& recurringAlarm(){
-    DateTime nextAlarm = time;
-    nextAlarm.addDay();
-    Alarm aux(nextAlarm, this -> message, this -> recurrent);
     return aux;
-}*/
+}
+Alarm::Alarm(int hour, int min,  std::string msg, bool recurrent): time(getAlarmDate(hour, min)), message(msg), recurrent(recurrent){}
+Alarm::Alarm(const Alarm& A): time(A.time), message(A.message), recurrent(A.recurrent){}
+Alarm::Alarm(DateTime time, std::string msg, bool recurrent): time(time), message(msg), recurrent(recurrent){}
+
 bool Alarm::isRecurrent(){
     return recurrent;
 }

@@ -3,18 +3,33 @@
 //
 
 #include "Menu.h"
-Menu::Menu(std::vector <std::unique_ptr <Reminder>> &R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A): rList(R), sList(S), tdList(T), aList(A) {}
-void Menu::listAlarms(){
+#include "Bill.h"
+#include "Birthday.h"
+#include <exception>
+#include <cmath>
 
-    for(int i = 0; i<aList.size(); ++i){
+class MyException: public std::exception{
+    std::string message;
+public:
+    explicit MyException(const std::string& message): message(message){}
+    virtual const char* what() const noexcept override{
+        return message.c_str();
+    }
+};
+
+Menu::Menu(std::vector <std::unique_ptr <Reminder>> R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A): rList(std::move(R)), sList(S), tdList(T), aList(A) {}
+void Menu::listAlarms(){
+    int n = aList.size();
+    for(int i = 0; i<n; ++i){
         std::cout << aList[i];
     }
     menuAlarms();
 }
 
 void Menu::listReminders(){
-    for(int i = 0; i<rList.size(); ++i){
-        std::cout << *rList[i];
+    int n = rList.size();
+    for(int i = 0; i<n; ++i){
+        rList[i] -> print(std::cout);
     }
     menuReminders();
 }
@@ -51,10 +66,60 @@ void Menu::menuAlarms(){
     }
 }
 
+std::unique_ptr<Reminder> addReminder(){
+    int choice;
+    double value, age;
+    DateTime time;
+    std::string name, in;
+    std::cout <<"\nReminder type: 1 for usual reminder, 2 for bill, 3 for birthday: ";
+    std::cin >> choice;
+    if(choice < 1 || choice > 3)
+        throw MyException("Invalid choice in addReminder!");
+    bool recurrent;
+    if(choice == 3){
+        std::cout << "\nName: ";
+        std::cin >> name;
+        std::cout << "\nAge: ";
+        std::cin >> age;
+        if(age < 0)
+            throw MyException("Age cannot be negative!");
+        if(floor(age) != age)
+            throw MyException("Age must be a whole number!");
+    }
+    if(choice == 2){
+        std::cout << "\nName of company: ";
+        std::cin >> name;
+        std::cout << "\nValue of bill: ";
+        std::cin >> value;
+        if(value < 0)
+            throw MyException("Value cannot be negative!");
+    }
+    std::cout << "\nTime in format DD MM YYYY HH MM: ";
+    std::cin >> time;
+    std::cout << "\nMessage: ";
+    std::cin >> in;
+    std::cout << "\nImportant reminder?(1 for yes, 0 for no): ";
+    std::cin >> recurrent;
+
+    switch(choice){
+        case 1:
+            return std::make_unique<Reminder>(in, time, recurrent);
+            break;
+        case 2:
+            return std::make_unique<Bill>(value, name, in, time, recurrent);
+            break;
+        case 3:
+            return std::make_unique<Birthday>(name, age, in, time, recurrent);
+            break;
+        default:
+            throw MyException("Invalid choice in addReminder!"); // primeam warning fara throw-ul asta, e redundant aici oricum
+            break;
+    }
+}
+
 void Menu::menuReminders(){
     std::cout << "1. List reminders\n" <<"2. Add reminder\n" << "3. Delete reminder\n" << "4. Back to main menu\n";
-    int n, i;
-    bool recurrent;
+    int n, i, choice;
     DateTime time;
     std::string in;
     std::cin >> n;
@@ -63,20 +128,23 @@ void Menu::menuReminders(){
             listReminders();
             break;
         case 2:
-            std::cout <<"\nTime in format DD MM YYYY HH MM: ";
-            std::cin >> time;
-            std::cout <<"\nMessage: ";
-            std::cin >> in;
-            std::cout<<"\nImportant reminder?(1 for yes, 0 for no): ";
-            std::cin >> recurrent;
-            rList.push_back(std::make_unique<Reminder>(in, time, recurrent));
+            try{
+                 rList.push_back(addReminder());
+            }
+            catch(MyException& ex){
+                std::cout << ex.what() <<"\n";
+            }
             menuReminders();
             break;
         case 3:
-            //listReminders();
             std::cout << "\nEnter index: ";
             std::cin >> i;
-            rList.erase(rList.begin() + i - 1);
+            std::cout << "\nPostpone reminder? (10 minutes for reminders, 1 month for bills, 1 year for birthdays) (1 for yes, 0 for no): ";
+            std::cin >> choice;
+            if(choice == 0)
+                rList.erase(rList.begin() + i - 1);
+            else
+                rList[i] -> delay();
             menuReminders();
             break;
         default:
@@ -85,7 +153,8 @@ void Menu::menuReminders(){
 }
 
 void Menu::listSLists(){
-    for(int i = 0; i<sList.size(); ++i){
+    int n = sList.size();
+    for(int i = 0; i<n; ++i){
         sList[i].printList(std::cout);
     }
     menuSLists();
@@ -94,7 +163,6 @@ void Menu::listSLists(){
 void Menu::menuSLists(){
     std::cout << "1. Print shopping lists\n" <<"2. Add shopping list\n" << "3. Delete shopping list\n" << "4. Back to main menu\n";
     int n, i;
-    bool recurrent;
     DateTime time;
     std::string in;
     std::cin >> n;
@@ -130,7 +198,8 @@ void Menu::menuSLists(){
 }
 
 void Menu::listTDLists(){
-    for(int i = 0; i<tdList.size(); ++i)
+    int n = tdList.size();
+    for(int i = 0; i<n; ++i)
         std::cout <<i+1<<". " << tdList[i];
     menuTDLists();
 }
@@ -138,7 +207,6 @@ void Menu::listTDLists(){
 void Menu::menuTDLists(){
     std::cout << "1. Print ToDos\n" <<"2. Add ToDo\n" << "3. Delete ToDo\n" <<"4. Mark task completed\n"<<"5. Print completed tasks\n"<< "6. Back to main menu\n";
     int n, i, j;
-    bool recurrent;
     DateTime time;
     std::string in;
     std::cin >> n;
