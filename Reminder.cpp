@@ -23,7 +23,7 @@
         R.remindTime.printDate(std::cout);
         return out;
     }
-    void Reminder::snooze(){
+    void Reminder::delay(){
         this -> remindTime.addMinutes(10);
     }
     void Reminder::setMessage(std::string msg){
@@ -41,3 +41,6 @@
     DateTime Reminder::getDate() {
         return this -> remindTime;
     }
+    std::unique_ptr <Reminder> Reminder::clone(){
+        return std::make_unique<Reminder>(*this);
+}

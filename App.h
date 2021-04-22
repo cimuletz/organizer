@@ -8,13 +8,14 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <memory>
 #include "Reminder.h"
 #include "ShoppingList.h"
 #include "ToDoList.h"
 #include "Alarm.h"
 
 class App {
-    std::vector<Reminder> rList;
+    std::vector<std::unique_ptr<Reminder>> rList;
     std::vector<ShoppingList> sList;
     std::vector<ToDoList> tdList;
     std::vector<Alarm> aList;

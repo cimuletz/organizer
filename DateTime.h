@@ -29,6 +29,8 @@ public:
     int getYear();
     void addDay();
     void addMinutes(int minutes);
+    void addMonths(int months);
+    void addYears(int years);
 };
 
 #endif //PROIECTOOP_DATETIME_H

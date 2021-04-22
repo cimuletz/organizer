@@ -142,3 +142,14 @@
             this->yr++;
         }
     }
+
+    void DateTime::addMonths(int months) {
+        this->mon += months;
+        if (this->mon > 12) {
+            this->mon -= 12;
+            this->yr++;
+        }
+    }
+    void DateTime::addYears(int years) {
+        this -> yr += years;
+    }

@@ -6,18 +6,19 @@
 #define PROIECTOOP_MENU_H
 
 
+#include <memory>
 #include "Reminder.h"
 #include "ShoppingList.h"
 #include "ToDoList.h"
 #include "Alarm.h"
 
 class Menu {
-    std::vector<Reminder> rList;
+    std::vector<std::unique_ptr<Reminder>> rList;
     std::vector<ShoppingList> sList;
     std::vector<ToDoList> tdList;
     std::vector<Alarm> aList;
 public:
-    Menu(std::vector<Reminder> R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A);
+    Menu(std::vector<std::unique_ptr<Reminder>> &R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A);
     void menuAlarms();
     void menu();
     void listAlarms();

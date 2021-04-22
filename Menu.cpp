@@ -3,7 +3,7 @@
 //
 
 #include "Menu.h"
-Menu::Menu(std::vector<Reminder> R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A): rList(R), sList(S), tdList(T), aList(A) {}
+Menu::Menu(std::vector <std::unique_ptr <Reminder>> &R, std::vector<ShoppingList> S, std::vector<ToDoList> T, std::vector<Alarm> A): rList(R), sList(S), tdList(T), aList(A) {}
 void Menu::listAlarms(){
 
     for(int i = 0; i<aList.size(); ++i){
@@ -14,7 +14,7 @@ void Menu::listAlarms(){
 
 void Menu::listReminders(){
     for(int i = 0; i<rList.size(); ++i){
-        std::cout << rList[i];
+        std::cout << *rList[i];
     }
     menuReminders();
 }
@@ -69,7 +69,7 @@ void Menu::menuReminders(){
             std::cin >> in;
             std::cout<<"\nImportant reminder?(1 for yes, 0 for no): ";
             std::cin >> recurrent;
-            rList.push_back(Reminder( in,time,recurrent));
+            rList.push_back(std::make_unique<Reminder>(in, time, recurrent));
             menuReminders();
             break;
         case 3:
