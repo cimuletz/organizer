@@ -10,8 +10,7 @@
 std::ifstream fin;
 
 int main() {
-    App A;
-    fin >> A;
-    A.launch();
-    return 0;
+
+    App* a = App::getApp();
+    a -> launch();
 }

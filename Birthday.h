@@ -13,7 +13,7 @@ class Birthday: public Reminder {
     int age;
 
 public:
-    explicit Birthday(std::string name, int age, std::string message, DateTime time, bool important = true);
+    Birthday(std::string name, int age, std::string message, DateTime time, bool important = true);
     Birthday(const Birthday& b) = default;
     void setName(std::string name);
     void setAge(int age);

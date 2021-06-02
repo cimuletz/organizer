@@ -7,31 +7,29 @@
 #include "Menu.h"
 #include "Bill.h"
 #include "Birthday.h"
+#include "Reminder_factory.h"
 
-App::App():rList(), sList(), tdList(), aList(){}
+
+App* App::app = 0;
+
+App::App(): rList(), sList(), tdList(), aList(){}
 
 DateTime readDate(std::string in){
     int j = 0, day, min, yr, hour, mon;
     day = min = yr = hour = mon = 0;
-    while(in[j] != ' '){
-        day = day * 10 + (in[j] - '0');
+    auto parse = [&](){
+        int res = 0;
+        while(in[j] != ' '){
+            res = res * 10 + (in[j] - '0');
+            j++;
+        }
         j++;
-    }
-    j++;
-    while(in[j] != ' '){
-        mon = mon * 10 + (in[j] - '0');
-        j++;
-    }
-    j++;
-    while(in[j] != ' '){
-        yr = yr * 10 + (in[j] - '0');
-        j++;
-    }
-    j++;
-    while(in[j] != ' '){
-        hour = hour * 10 + (in[j] - '0');
-        j++;
-    }
+        return res;
+    };
+    day = parse();
+    mon = parse();
+    yr = parse();
+    hour = parse();
     j++;
     int m = in.size();
     while(j < m){
@@ -44,7 +42,7 @@ DateTime readDate(std::string in){
     return  aux;
 }
 
-std::istream& operator>>(std::istream& rd, App& A){
+void App::setVectors() {
     std::string in;
     std::string name;
     std::vector<std::string> input;
@@ -65,7 +63,7 @@ std::istream& operator>>(std::istream& rd, App& A){
     for(int i = 0; i<n; ++i){
         in = input[index++];
         timeAux = readDate(input[index++]);
-        A.rList.push_back(std::make_unique <Reminder>(in, timeAux, importance));
+        rList.push_back(std::make_unique <Reminder>(in, timeAux, importance));
     }
     ///read bills
     n = stoi(input[index++]);
@@ -74,7 +72,7 @@ std::istream& operator>>(std::istream& rd, App& A){
         in = input[index++];
         timeAux = readDate(input[index++]);
         value = stod(input[index++]);
-        A.rList.emplace_back(std::make_unique <Bill>(value, name, in, timeAux));
+        rList.emplace_back(std::make_unique <Bill>(value, name, in, timeAux));
     }
     ///read birthdays
     n = stoi(input[index++]);
@@ -83,7 +81,7 @@ std::istream& operator>>(std::istream& rd, App& A){
         in = input[index++];
         timeAux = readDate(input[index++]);
         age = stoi(input[index++]);
-        A.rList.push_back(std::make_unique <Birthday>(name, age, in, timeAux));
+        rList.push_back(std::make_unique <Birthday>(name, age, in, timeAux));
     }
     ///read shopping lists
     n = stoi(input[index]);
@@ -93,12 +91,12 @@ std::istream& operator>>(std::istream& rd, App& A){
         ShoppingList aux(in);
         index++;
         m = stoi(input[index]);
-        for(int j = 0; j<m; ++j){
+        for(j = 0; j<m; ++j){
             index++;
             in = input[index];
             aux.addItem(in);
         }
-        A.sList.push_back(aux);
+        sList.push_back(aux);
     }
     ///read todo lists
     index++;
@@ -112,7 +110,7 @@ std::istream& operator>>(std::istream& rd, App& A){
             timeAux = readDate(input[index++]);
             aux.addTask(in, timeAux);
         }
-        A.tdList.push_back(aux);
+        tdList.push_back(aux);
     }
     ///read alarms
     n = stoi(input[index++]);
@@ -125,17 +123,21 @@ std::istream& operator>>(std::istream& rd, App& A){
             j++;
         }
         j++;
-        int m = input[index].size();
+        m = input[index].size();
         while(j < m){
             min = min * 10 + (input[index][j] - '0');
             j++;
         }
         index++;
-        A.aList.push_back(Alarm( hour,min, in, importance));
+        aList.push_back(Alarm( hour,min, in, importance));
     }
-    return rd;
 }
 void App::launch(){
+    setVectors();
+    rList.push_back(Reminder_factory::reminder_normal());
+    rList.push_back(Reminder_factory::reminder_important());
+    rList.push_back(Reminder_factory::bill());
+    rList.push_back(Reminder_factory::birthday());
     Menu M(std::move(rList), sList, tdList, aList);
     M.menu();
 }

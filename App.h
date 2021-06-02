@@ -15,13 +15,20 @@
 #include "Alarm.h"
 
 class App {
+    static App* app;
     std::vector<std::unique_ptr<Reminder>> rList;
     std::vector<ShoppingList> sList;
     std::vector<ToDoList> tdList;
     std::vector<Alarm> aList;
-public:
     App();
-    friend std::istream& operator>>(std::istream& rd, App& A);
+public:
+    static App* getApp(){
+        if(app == 0){
+            app = new App;
+        }
+        return app;
+    }
+    void setVectors();
     void launch();
 };
 

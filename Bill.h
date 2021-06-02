@@ -11,8 +11,10 @@
 class Bill: public Reminder{
     std::string company;
     double value;
+    friend class Bill_builder;
 public:
-    explicit Bill(double value, std::string company, std::string message, DateTime remindTime, bool important = true);
+    Bill(double value, std::string company, std::string message, DateTime remindTime, bool important = true);
+    //Bill() = default;
     Bill(const Bill& b) = default;
     void setValue(double value);
     void setCompany(std::string company);
