@@ -11,7 +11,7 @@ std::ostream& operator<<(std::ostream& out, ToDoList& lista){
     out << lista.name << "\n";
     int n = lista.tasks.size();
     for(int i = 0; i < n; ++i){
-        out << lista.tasks[i].getMessage() << "\nDeadline: " << lista.tasks[i].getDate() << "\n";
+        out << i+1 << ")" << lista.tasks[i].getMessage() << "\nDeadline: " << lista.tasks[i].getDate() << "\n";
     }
     return out;
 }
@@ -20,8 +20,8 @@ void ToDoList::addTask(std::string message, DateTime time){
     std::cout<< "Task added succesfully!" << "\n" ;
 }
 void ToDoList::removeTask(int i){
-    Reminder R = tasks[i - 1];
-    tasks.erase(tasks.begin() + i - 1);
+    Reminder R = tasks[i];
+    tasks.erase(tasks.begin() + i);
     std::cout << "Removed task: " << R.getMessage() << "\n";
 }
 void ToDoList::nextTasks(DateTime time){
@@ -41,7 +41,7 @@ void ToDoList::missedTasks() {
 }
 void ToDoList::completedTask(int i){
     Reminder R = tasks[i-1];
-    this->removeTask(i);
+    this->removeTask(i-1);
     completed.push_back(R);
     std::cout << "Completed task: " << R.getMessage() << "\n";
 }

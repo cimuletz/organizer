@@ -221,7 +221,7 @@ void Menu::menuTDLists(){
             std::cin >> i;
             ToDoList aux(in);
             std::cout << "\nEnter tasks: ";
-            for (int j = 0; j < i; ++j) {
+            for (j = 0; j < i; ++j) {
                 std::cout << "\nTask name: ";
                 std::cin >> in;
                 std::cout << "\nDeadline in format DD MM YYYY HH MM: ";
@@ -245,13 +245,13 @@ void Menu::menuTDLists(){
             std::cin >> i;
             std::cout << "\nWhich index?";
             std::cin >> j;
-            tdList[i].completedTask(j);
+            tdList[i-1].completedTask(j);
             menuTDLists();
             break;
         case 5:
             std::cout <<"\nFrom which list?";
             std::cin >> i;
-            tdList[i].printCompleted(std::cout);
+            tdList[i-1].printCompleted(std::cout);
             menuTDLists();
             break;
         default:
